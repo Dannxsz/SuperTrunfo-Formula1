@@ -1,0 +1,24 @@
+digraph G {
+    graph [rankdir=TB, bgcolor="white", pad="0.2", nodesep="0.35", ranksep="0.45"];
+    node [shape=record, style="rounded,filled", fillcolor="#F8F8F8", color="#222222", fontname="DejaVu Sans", fontsize=12];
+    edge [color="#555555", arrowsize=0.8, fontname="DejaVu Sans", fontsize=10];
+
+    Jogo [label="{JogoSuperTrunfo|+ Jogador1: Jogador\l+ Jogador2: Jogador\l+ NumeroRodada: int\l+ Finalizado: bool\l|+ JogarRodada()\l+ ObterVencedorFinal()\l}"];
+    Baralho [label="{Baralho|+ Quantidade: int\l+ Cartas: IReadOnlyList\l|+ Embaralhar()\l+ Distribuir()\l+ CriarPadrao()\l}"];
+    Jogador [label="{Jogador|+ Nome: string\l+ QuantidadeCartas: int\l+ PossuiCartas: bool\l|+ ReceberCarta()\l+ JogarCarta()\l}"];
+    Carta [label="{Carta|+ Piloto: string\l+ Equipe: string\l+ Vitorias: int\l+ Podios: int\l+ PolePositions: int\l+ TitulosMundiais: int\l+ TempoMedioPitStop: double\l|+ ObterValor()\l+ CompararCom()\l}"];
+    Resultado [label="{ResultadoRodada|+ CartaJogador1: Carta\l+ CartaJogador2: Carta\l+ AtributoEscolhido: Atributo\l+ Vencedor: VencedorRodada\l}"];
+    Atributo [label="{enum Atributo|Vitorias\lPodios\lPolePositions\lTitulosMundiais\lTempoMedioPitStop\l}"];
+    Vencedor [label="{enum VencedorRodada|Empate\lJogador1\lJogador2\l}"];
+    Excecoes [label="{Exceções|OpcaoInvalidaException\lSemCartasException\l}"];
+
+    Jogo -> Jogador [label="controla"];
+    Jogo -> Resultado [label="gera"];
+    Baralho -> Jogador [label="distribui"];
+    Baralho -> Carta [label="contém"];
+    Jogador -> Carta [label="fila"];
+    Resultado -> Carta [label="guarda"];
+    Carta -> Atributo [label="usa"];
+    Resultado -> Vencedor [label="indica"];
+    Jogo -> Excecoes [style=dashed,label="lança"];
+}
