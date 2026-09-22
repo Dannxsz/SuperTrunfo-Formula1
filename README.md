@@ -55,10 +55,9 @@ dotnet test tests/SuperTrunfo.Tests/SuperTrunfo.Tests.csproj
 
 ## Link do GitHub
 
-Depois de publicar, substitua o link abaixo pelo repositório real:
 
 ```text
-https://github.com/SEU-USUARIO/SuperTrunfo-Formula1
+https://github.com/Dannxsz/SuperTrunfo-Formula1
 ```
 
 ## Observação sobre os dados das cartas
